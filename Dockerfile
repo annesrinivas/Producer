@@ -20,8 +20,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 # Define default command.
 CMD ["bash"]
 
-
-
 #FROM java:8
 COPY jars /home/root/excercise
 WORKDIR /home/root/excercise
