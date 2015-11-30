@@ -16,21 +16,20 @@ public class Producer {
 	
 		try {
  
-			//Source file on same dir
-			InputStream jsonInputStream =Producer.class.getResourceAsStream("JSONSource.txt"); 
-				
 			//Read JSON file 
+			InputStream jsonInputStream =Producer.class.getResourceAsStream("JSONSource.txt"); 
 			InputStreamReader jsonReader = new InputStreamReader(jsonInputStream);
 			BufferedReader br = new BufferedReader(jsonReader);
 			String line;
 			
+			//Create a JSONObject
 		 	while ((line = br.readLine()) != null) {
 		 	System.out.println("\nRead" + line);
 			
 			JSONObject jsonObject = new JSONObject(line);
 			System.out.println("JSON Object"+ jsonObject);
  
-			// Pass JSON Object to REST Service
+			// Pass JSON Object to Consumer REST Service
 			try {
 					URL url = new URL("http://localhost:8080/Consumer/api/consumerService");
 					URLConnection connection = url.openConnection();
