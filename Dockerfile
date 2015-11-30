@@ -5,6 +5,6 @@ WORKDIR /home/root/excercise
 
 RUN mkdir bin
 
-RUN javac -d bin src/Producer.java
+RUN javac -d bin ./Producer.java
 
 CMD ("java", "Producer")
