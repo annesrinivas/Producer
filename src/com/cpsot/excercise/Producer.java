@@ -17,10 +17,9 @@ public class Producer {
 		try {
  
 			//Source file on same dir
-			URL path = Producer.class.getResource("JSONSource.txt");
-		
-			//Read JSON file from fileSystem
-			InputStream jsonInputStream = new FileInputStream(path.getFile());
+			InputStream jsonInputStream =Producer.class.getResourceAsStream("JSONSource.txt"); 
+				
+			//Read JSON file 
 			InputStreamReader jsonReader = new InputStreamReader(jsonInputStream);
 			BufferedReader br = new BufferedReader(jsonReader);
 			String line;
