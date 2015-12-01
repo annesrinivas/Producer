@@ -21,17 +21,20 @@ public class Producer {
 			InputStreamReader jsonReader = new InputStreamReader(jsonInputStream);
 			BufferedReader br = new BufferedReader(jsonReader);
 			String line;
-			
-			//Create a JSONObject
-		 	while ((line = br.readLine()) != null) {
+			while ((line = br.readLine()) != null) {
 		 	System.out.println("\nRead" + line);
 			
+		 	//Create a JSONObject
 			JSONObject jsonObject = new JSONObject(line);
 			System.out.println("JSON Object"+ jsonObject);
+						
+			//Get IP for Consumer from cmd line
+			String ip=args[0];
+			System.out.println("IP is "+ip);
  
 			// Pass JSON Object to Consumer REST Service
 			try {
-					URL url = new URL("http://172.17.0.2:8080/Consumer/api/consumerService");
+					URL url = new URL("http://"+ip+":8080/Consumer/api/consumerService");
 					URLConnection connection = url.openConnection();
 					connection.setDoOutput(true);
 					connection.setRequestProperty("Content-Type", "application/json");
