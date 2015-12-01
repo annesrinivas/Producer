@@ -31,7 +31,7 @@ public class Producer {
  
 			// Pass JSON Object to Consumer REST Service
 			try {
-					URL url = new URL("http://localhost:8080/Consumer/api/consumerService");
+					URL url = new URL("http://172.17.0.2:8080/Consumer/api/consumerService");
 					URLConnection connection = url.openConnection();
 					connection.setDoOutput(true);
 					connection.setRequestProperty("Content-Type", "application/json");
